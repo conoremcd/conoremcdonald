@@ -1,33 +1,30 @@
 Vue.component('main-header', {
 	data: function() {
 		return {
-			fields: {
-				logo: null,
-				home: '',
-				items: []
-			}
+			logo: 'assets/images/logos/color/personal_logo_grey-01.png',
+			items: [
+				{
+					title: 'Home',
+					path: '/'
+				},
+				{
+					title: 'Projects',
+					path: '/projects'
+				},
+				{
+					title: 'Gallery',
+					path: '/gallery'
+				}
+			]
 		}
-	},
-	methods: {
-		getContent() {
-			this.$prismic.client.getSingle('header')
-				.then((document) => {
-					this.fields.logo = document.data.logo;
-					this.fields.home = document.data.home;
-					this.fields.items = document.data.nav;
-				})
-		}
-	},
-	created() {
-		this.getContent();
 	},
 	template: `
 		<nav id="mainMenu" class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
 			
 			<!-- Brand -->
-			<router-link class="navbar-brand" :name="Home" :to="fields.home">
-				<prismic-image class="logo" name="Logo" :field="fields.logo" alt="Logo"/>
-			</router-link>
+			<a class="navbar-brand" href="index.html">
+				<img class="logo" name="Logo" :src="logo" alt="Logo"/>
+			</a>
 	
 			<!-- Toggler/collapsibe Button -->
 			<button class="navbar-toggler" name="Navigation" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -37,9 +34,12 @@ Vue.component('main-header', {
 			<!-- Navbar links -->
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav ml-auto">
-					<main-nav-item v-for="item in fields.items" :key="fields.items.name">
-						<router-link class="nav-link" :name="item.name" :to="item.path">{{item.name}}</router-link>
+					<main-nav-item v-for="item in items">
+						<router-link class="nav-link" :name="item.title" :to="item.path">{{item.title}}</router-link>
 					</main-nav-item>
+					<li class="nav-item">
+						<a class="nav-link" name="Resume" href="assets/images/resumes/Conor_McDonald_resume-grey.pdf">Resume</a>
+					</li>	
 				</ul>
 			</div>
 		</nav>
@@ -53,100 +53,57 @@ Vue.component('main-nav-item', {
 	template: `
 		<li class="nav-item">
 			<slot></slot>
-		</li>
+		<li class="nav-item">
 	`
 })
 
 Vue.component('main-footer', {
 	data: function() {
 		return {
-			fields: {
-				phone: '',
-				email: '',
-				links: []
-			}
+			phoneNumber: '484.326.6252',
+			email: 'conormcdonald714@gmail.com',
+			gitHub: 'https://github.com/conoremcd',
+			linkedIn: 'https://www.linkedin.com/in/conormcdonald147/'
 		}
-	},
-	methods: {
-		getContent() {
-			this.$prismic.client.getSingle('footer')
-				.then((document) => {
-					this.fields.phone = document.data.phone;
-					this.fields.email = document.data.email;
-					this.fields.links = document.data.links;
-				})
-		}
-	},
-	created() {
-		this.getContent();
+
 	},
 	template: `
-		<footer class="container-fluid py-2">
-			<div class="row">
-				<div class="col"></div>
-				<div class="col-sm-3 col-lg-2 col-xl-2">
-					<prismic-rich-text :field="fields.phone"/>
-					<prismic-rich-text :field="fields.email"/>
-				</div>
-				<div class="col"></div>
-				<div class="col-sm-3 col-lg-2 col-xl-2">
-					<social-link v-for="item in fields.links" :key="fields.links.link"></social-link>
-				</div>
-				<div class="col"></div>
-			</div>
-		</footer>
+		<div></div>
 
 
-	`
-})
-
-Vue.component('social-link' , {
-	props: {
-		item: Object
-	},
-	template: `
-		<prismic-link :field="item.link">
-			<prismic-image :field="item.icon" class="icon"/>
-		</prismic-link>
 	`
 })
 
 Vue.component('main-background', {
 	data: function() {
 		return {
-			fields: {
-				image: ''
-			}
+			imageField: null
 		}
 	},
-	methods: {
-		getContent() {
-			this.$prismic.client.getSingle('background')
-				.then((document) => {
-					this.fields.image = document.data.image;
-				})
-		}
-	},
-	created() {
-		this.getContent();
-	},
-	template: `	
-		<prismic-image class="bg img-fluid" :field="fields.image"/>
+	template: `
+		<prismic-image class="bg img-fluid" :field="fields.background" alt="background"/>
 	`
 })
 
 Vue.component('about-section', {
-	
 	template: `
 		<div class="row py-2 about">
 			<div class="col"></div>
 			<div class="col-sm-2 col-xl-2">
 				<div class="mx-auto text-center py-4">
-					<prismic-image class="portrait rounded-circle" :field="fields.profile" alt="self portrait"/>
+					<img class="portrait rounded-circle" src="assets/images/profile/self-portrait.jpeg" alt="self portrait"/>
 				</div>
 			</div>
 			<div class="col-sm-6 col-xl-5 p-4">
-				<prismic-rich-text class="lt-t about-info mx-auto text-justify" :field="fields.description"/> 
+				<p class="lt-t about-info mx-auto text-justify">
+					&emsp;&emsp;Conor McDonald is a web designer
+					and developer with a passion for user centered design.
+					His interests include software development,
+					computer animation, game design, and sustainable
+					technology. Conor currently lives in Burbank, CA, where
+					he also spends his time painting, creating generative
+					art, graphic designing, and hiking. 
+				</p>
 			</div>
 			<div class="col"></div>
 		</div>

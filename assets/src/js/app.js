@@ -4,8 +4,11 @@
 const Main = {
 	template: `
 		<main class="container-fluid main">
-
+			<about-section></about-section>
+			<main-button-section></main-button-section>
+			<stat-section></stat-section>
 		</main>
+
 	`
 };
 
@@ -41,35 +44,51 @@ Vue.use(PrismicVue, {
   linkResolver: linkResolver
 });
 
-/**************************************************/
-/* Vue Instance ***********************************/
-
+// vue instance
 const vm = new Vue({
 	el: '#app',
-	router
+	router,
+	data: {
+		fields: {
+			background: null,
+			logo: null
+		}
+
+	},
+	methods: {
+		getContent() {
+			this.$prismic.client.getSingle('home')
+				.then((document) => {
+					this.fields.background = document.data.background;
+					this.fields.logo = document.data.logo;
+				})
+		}
+
+	},
+	created() {
+		this.getContent();
+	},
+	
 });
 
-/**************************************************/
-/* Functions **************************************/
-
 // prismic link resolver
-function linkResolver(doc) {
+function linkResolver() {
 	
 	// Return the path depending on Prismic Document's type
-
-	if (doc.type === 'background') {
-		return '/background';
+    // If it is a Single Custom Type with the API ID of "home"
+	if (doc.type === 'home') {
+		return '/';
 	}
 
-    if (doc.type === 'header') {
-      return '/header';
+	// If it is a Single Custom Type with the API ID of "projects"
+    if (doc.type === 'projects') {
+      return '/projects';
     }
 
-    if (doc.type === 'footer') {
-    	return '/footer';
-
+    if (doc.type === 'gallery') {
+    	return '/gallery';
     }
-
+    
     // Default to the root
     return '/';
 }
