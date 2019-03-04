@@ -1,0 +1,146 @@
+/* Common Page Elements */
+/*_______________*/
+
+
+.main-footer{
+	background-color: #dddddd;
+}
+
+.logo{
+	height: 50px !important;
+	width: 50px !important;
+}
+
+.portrait{
+	border: 2px solid #dddddd;
+	max-width: 200px;
+}
+
+.about-info{
+	font:  18px Source Sans Pro;
+	word-spacing: 3px;
+}
+
+.main-focus{
+	
+}
+
+.main-btn{
+	background-color: #26a883;
+	color: #eeeeee;
+}
+
+a.main-btn:hover{
+	color: #cccccc;
+}
+
+.social-link{
+	padding-bottom: 2em;
+	margin-bottom: 2em;
+}
+
+.stats{
+	background-color: #eeeeee;
+}
+
+.items{
+	text-align: center;
+	max-width: 100%;
+}
+
+.item{
+	height: 100%;
+}
+
+.thumb{
+	max-width: 100%;
+}
+
+.thumb:hover{
+	box-shadow: 0px 5px 10px rgb(52, 58, 64);
+}
+
+.piece{
+	width: 100%;
+	max-width: 100%;
+}
+
+.cap{
+	margin: auto;
+	text-align: center;
+}
+
+/* ID Elements */
+/*_____________*/
+
+#gallery-display-port{
+	max-width: 100%;
+	width: 100%;
+}
+
+/* Style Details */
+/*_______________*/
+
+.lt-t{
+	font-family: Source Sans Pro, sans-serif;
+	color: #f9fefe !important;
+}
+
+.md-t{
+	font-family: Source Sans Pro, sans-serif;
+	color: #666666 !important;
+}
+
+.drk-t{
+	font-family: Source Sans Pro, sans-serif;
+	color: #333333 !important;
+}
+
+.clr-t{
+	font-family: Source Sans Pro, sans-serif;
+	color: #26a883;
+}
+
+.lnk-t{
+	color: #3aa6dd;
+}
+
+.bg-wt {
+	background-color: #ffffff !important;
+}
+
+.bg-lt{
+	background-color: #f9fefe !important;
+}
+
+.bg-md{
+	background-color: #848989 !important;
+}
+
+.bg-drk{
+	background-color: rgb(52, 58, 64) !important;
+}
+
+.bg-clr{
+	background-color: #26a883; 
+}
+
+.brdr-top{
+	border-top: 2px solid #dddddd; 
+}
+
+.brdr-btm{
+	border-bottom: 2px solid #dddddd; 
+}
+
+.drk-brdr-btm{
+	border-bottom: 2px solid #bbbbbb;
+}
+
+.clr-brdr-btm{
+	border-bottom: 3px solid #26a883;	
+}
+
+.m-bump{
+	margin-bottom: 4em;
+}
