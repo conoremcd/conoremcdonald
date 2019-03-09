@@ -1,8 +1,10 @@
 <template>
-	<b-img class="thumb" @click="$emit('updateCurrent', pid)" :src="thumbnail.url" :alt="image.alt" rounded="circle"/>
+	<div class="mb-3">
+		<b-img fluid @click="changeImage()" :src="thumbnail.url" :alt="image.alt" rounded="circle"/>
+	</div>
 </template>
+
 <script>
-	
 	export default {
 		props: {
 			title: Array,
@@ -10,6 +12,15 @@
 			thumbnail: Object,
 			image: Object,
 			description: Array
+		},
+		methods: {
+			changeImage() {
+				this.$emit('changeImage', this.pid);
+			}
 		}
 	}
 </script>
+
+<style>
+	
+</style>

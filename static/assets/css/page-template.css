@@ -1,11 +1,6 @@
 /* Common Page Elements */
 /*_______________*/
 
-
-.main-footer{
-	background-color: #dddddd;
-}
-
 .logo{
 	height: 50px !important;
 	width: 50px !important;
@@ -19,19 +14,6 @@
 .about-info{
 	font:  18px Source Sans Pro;
 	word-spacing: 3px;
-}
-
-.main-focus{
-	
-}
-
-.main-btn{
-	background-color: #26a883;
-	color: #eeeeee;
-}
-
-a.main-btn:hover{
-	color: #cccccc;
 }
 
 .social-link{
@@ -56,13 +38,8 @@ a.main-btn:hover{
 	max-width: 100%;
 }
 
-.thumb:hover{
-	box-shadow: 0px 5px 10px rgb(52, 58, 64);
-}
-
-.piece{
-	width: 100%;
-	max-width: 100%;
+.thumb.hover{
+	box-shadow: 0px 5px 10px rgb(200, 200, 200);
 }
 
 .cap{
@@ -73,10 +50,6 @@ a.main-btn:hover{
 /* ID Elements */
 /*_____________*/
 
-#gallery-display-port{
-	max-width: 100%;
-	width: 100%;
-}
 
 /* Style Details */
 /*_______________*/
@@ -123,6 +96,10 @@ a.main-btn:hover{
 
 .bg-clr{
 	background-color: #26a883; 
+}
+
+.bg-drk-trnsp{
+	background-color: rgba(52, 58, 64, 0.8) !important;
 }
 
 .brdr-top{

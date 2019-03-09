@@ -1,5 +1,5 @@
 <template>
-	<div class="mb-2" @click="close()">
+	<div class="mb-2 float-right" @click="close()">
 		<b-img class="arrow" src="assets/images/icons/arrow-left.png" rounded="circle"/>
 	</div>
 </template>

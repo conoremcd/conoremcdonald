@@ -41,8 +41,8 @@ conormcdonald714@gmail.com
 	}
 </script>
 
-<style>
-	b-container {
+<style scoped>
+	.main-footer {
 		background-color: #dddddd;
 	}
 </style>

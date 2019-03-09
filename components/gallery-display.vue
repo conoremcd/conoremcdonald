@@ -1,17 +1,19 @@
 <template>
-	<div>
-		<div id="gallery-display" class="mb-3 px-0">
+	<b-row class="vh-75">
+		<gallery-list :class="{ open: listDisplay }" :gallery="gallery" @close="hideList()" @setCurrent="setCurrent($event)"></gallery-list>
+		<b-col cols="2" sm="1">
+			<open-list @open="showList()"></open-list>		
+		</b-col>
+		<b-col cols="10" sm="11">
 			<piece v-bind.sync="current"></piece>
-		</div>
-		<div id="gallery-list" class="pt-3 px-4">
-			<thumb class="mb-5 mx-4" v-for="piece in gallery" v-bind="piece.data" v-on:updateCurrent="setCurrent" :key="piece.data.pid"></thumb>
-		</div>
-	</div>
+		</b-col>
+	</b-row>
 </template>
 
 <script>
 	import Piece from '~/components/piece.vue'
-	import Thumb from '~/components/thumb.vue'
+	import GalleryList from '~/components/gallery-list.vue'
+	import OpenList from '~/components/open-list.vue'
 
 	export default {
 		props: {
@@ -19,31 +21,31 @@
 		},
 		components: {
 			Piece,
-			Thumb
+			GalleryList,
+			OpenList
 		},
 		data() {
 			return {
 				current: this.gallery[0].data,
-				display: 'none'
+				listDisplay: false
 			}
 		},
 		methods: {
-			setCurrent(id) {
-				let current = null;
-
-				this.gallery.forEach((elem) => {
-					if (elem.data.pid === id) {
-						current = elem.data;
-					}
-				});
-
-				this.current = current;
+			setCurrent(cur) {
+				this.current = cur;
+				this.listDisplay = false;
+			},
+			showList() {
+				this.listDisplay = true;
+			},
+			hideList() {
+				this.listDisplay = false;
 			}
+
 		}
 	}
 </script>
+
 <style>
-	#gallery-display{	
-		display: this.display;
-	}
+
 </style>
