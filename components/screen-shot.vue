@@ -1,8 +1,10 @@
 <template>
-	<b-row>
+	<b-row class="py-3 md-brdr-top">
+		<b-col cols="8">
+			<b-img class="pb-2" :src="image.shot.url" fluid />
+		</b-col>
 		<b-col>
-			<b-img :src="image.shot.url" fluid />
-			<p>{{ image.caption[0].text }}</p>
+			<p class="md-t">{{ image.caption[0].text }}</p>
 		</b-col>
 	</b-row>
 </template>

@@ -1,7 +1,7 @@
 <template>
 	<b-navbar toggleable="md" type="dark" variant="dark" sticky>
 		<b-navbar-brand to="/">
-			<b-img class="logo" rounded="circle" :src="logo" alt="Logo"/>
+			<b-img class="logo" rounded="circle" fluid :src="logo" alt="Logo"/>
 		</b-navbar-brand>
 
 		<b-navbar-toggle target="nav_collapse" />
@@ -20,7 +20,7 @@
 	export default {
 		data () {
 			return {
-				logo: 'assets/images/logos/color/personal_logo_grey-01.png',
+				logo: '/assets/images/logos/color/personal_logo_grey-01.png',
 				nav: [
 					{
 						title: 'Home',

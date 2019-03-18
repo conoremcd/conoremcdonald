@@ -5,13 +5,12 @@
 		class="icon"
 	>
 		<b-link 
-			:href="href" 
+			:href="path" 
 			target="_blank"
 		>
 			<b-img 
-				class="bg-lt"
 				fluid
-				rounded 
+				rounded
 				:src="icon"
 			/>
 		</b-link>
@@ -22,7 +21,7 @@
 	
 	export default {
 		props: {
-			href: String,
+			path: String,
 			primary: String,
 			secondary: String
 		},
